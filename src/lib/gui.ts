@@ -1,11 +1,10 @@
 import { CSS } from './CSS';
 
-console.log('a change');
 interface Options {
     title?: string;
     width?: number;
     height?: number;
-    // Show the gui `on page load
+    // Show the gui on page load initially
     show?: boolean;
     key?: string;
 }
@@ -32,16 +31,6 @@ export class GUI {
         };
 
         this.options = { ...defaultOptions, ...options };
-
-        if (this.options.show) {
-            this.display(true);
-        }
-
-        document.addEventListener('keydown', e => {
-            if (e.key === this.options.key) {
-                this.display(!this.visible);
-            }
-        });
     }
 
     addFolder(folder: Folder) {
@@ -49,7 +38,10 @@ export class GUI {
     }
 
     display(show: boolean) {
-        // toggle display on gui element
+        this.visible = show;
+
+        const source = document.getElementById(this.sourceID) as HTMLDivElement;
+        source.style.display = show ? 'flex' : 'none';
     }
 
     init() {
@@ -71,6 +63,16 @@ export class GUI {
             folder._renderTo(source);
         }
         document.body.appendChild(source);
+
+        if (this.options.show) {
+            this.display(true);
+        }
+
+        document.addEventListener('keydown', e => {
+            if (e.key === this.options.key) {
+                this.display(!this.visible);
+            }
+        });
     }
 }
 
