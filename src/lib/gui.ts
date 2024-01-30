@@ -23,9 +23,9 @@ export class GUI {
 
     constructor(options?: Options) {
         const defaultOptions: Options = {
-            title: 'GG GUI',
+            title: 'GGUI',
             width: 700,
-            height: 400,
+            height: 450,
             show: true,
             key: 'Escape',
         };
@@ -44,6 +44,19 @@ export class GUI {
         source.style.display = show ? 'flex' : 'none';
     }
 
+    private _createTitle() {
+        const title = document.createElement('div');
+        title.id = 'GGUI-Title';
+        title.innerText = this.options.title!;
+        return title;
+    }
+    private _createFooter() {
+        const footer = document.createElement('div');
+        footer.id = 'GGUI-footer';
+        footer.innerText = 'GGui.js';
+        return footer;
+    }
+
     init() {
         if (this.locked) throw new Error('Gui has already been initialized');
         this.locked = true;
@@ -59,13 +72,16 @@ export class GUI {
 
         const folderContainer = document.createElement('div');
         folderContainer.id = 'GGUI-Folder-Container';
+
         // Render the gui to html
         for (let i = 0; i < this.folders.length; i++) {
             const folder = this.folders[i];
             folder._renderTo(folderContainer);
         }
 
+        source.appendChild(this._createTitle());
         source.appendChild(folderContainer);
+        source.appendChild(this._createFooter());
         document.body.appendChild(source);
 
         if (this.options.show) {
@@ -93,24 +109,17 @@ export class Folder {
     }
 
     addComponent(component: Component) {
-        switch (true) {
-            case component instanceof Button:
-                const button = component as Button;
-
-                break;
-            case component instanceof CheckBox:
-                const checkbox = component as CheckBox;
-
-                break;
-            default:
-                break;
-        }
         this.components.push(component);
     }
 
     _renderTo(parent: HTMLElement) {
         const folder = document.createElement('div');
         folder.classList.add('GGUI-Folder');
+
+        const folderTitle = document.createElement('div');
+        folderTitle.innerText = this.name;
+        folderTitle.classList.add('GGUI-Folder-Title');
+        folder.appendChild(folderTitle);
 
         for (let i = 0; i < this.components.length; i++) {
             const component = this.components[i];

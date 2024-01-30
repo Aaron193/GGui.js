@@ -6,7 +6,7 @@ const Button = GGUI.Button;
 const CheckBox = GGUI.CheckBox;
 
 const gui = new GUI({
-    title: 'My GUI',
+    title: 'My Gui Title',
 });
 
 const folderCount = 10;
