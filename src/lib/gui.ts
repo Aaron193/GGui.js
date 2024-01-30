@@ -57,11 +57,15 @@ export class GUI {
         source.style.width = `${this.options.width}px`;
         source.style.height = `${this.options.height}px`;
 
+        const folderContainer = document.createElement('div');
+        folderContainer.id = 'GGUI-Folder-Container';
         // Render the gui to html
         for (let i = 0; i < this.folders.length; i++) {
             const folder = this.folders[i];
-            folder._renderTo(source);
+            folder._renderTo(folderContainer);
         }
+
+        source.appendChild(folderContainer);
         document.body.appendChild(source);
 
         if (this.options.show) {
@@ -156,7 +160,7 @@ export class Button extends Component {
         const button = document.createElement('button');
         button.innerText = this.options.label || '';
         button.classList.add('GGUI-Button');
-        button.addEventListener('change', e => {
+        button.addEventListener('click', () => {
             this.options.onClick();
         });
 

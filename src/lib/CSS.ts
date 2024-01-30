@@ -17,10 +17,36 @@ export const CSS = /*css*/ `
         background-color: #2e2e2e;
         color: white;
         padding: 5px;
+        margin-left: 10px;
+        margin-right: 10px;
+        overflow: auto;
+    }
+
+    /* Prevent margin against the container */
+    .GGUI-Folder:first-child {
+        margin-left: 0px;
+    }
+    .GGUI-Folder:last-child {
+        margin-left: 0px;
     }
 
     .GGUI-Row {
         display: flex;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    /* Prevent margin against top/bottom of folder */
+    .GGUI-Row:first-child {
+        margin-top: 0px;
+    }
+    .GGUI-Row:last-child {
+        margin-bottom: 0px;
+    }
+
+    #GGUI-Folder-Container {
+        display: flex;
+        overflow: auto;
     }
 
 `;

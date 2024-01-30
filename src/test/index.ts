@@ -9,29 +9,38 @@ const gui = new GUI({
     title: 'My GUI',
 });
 
-const folder = new Folder({
-    name: 'folder',
-});
+const folderCount = 10;
+const buttonPerFolder = 10;
+const checkboxPerFolder = 10;
+for (let i = 0; i < folderCount; i++) {
+    const folder = new Folder({
+        name: `folder-${i}`,
+    });
 
-folder.addComponent(
-    new Button({
-        title: 'button-name',
-        label: 'click here',
-        onClick: () => {
-            console.log('i clicked it');
-        },
-    })
-);
+    for (let j = 0; j < buttonPerFolder; j++) {
+        folder.addComponent(
+            new Button({
+                title: `button-${i}-${j}`,
+                label: `click here ${i}-${j}`,
+                onClick: () => {
+                    console.log(`Button clicked ${i}:${j}`);
+                },
+            })
+        );
+    }
 
-folder.addComponent(
-    new CheckBox({
-        title: 'checkbox-name',
-        onChange: active => {
-            console.log('checkbox state', active);
-        },
-    })
-);
+    for (let j = 0; j < checkboxPerFolder; j++) {
+        folder.addComponent(
+            new CheckBox({
+                title: `checkbox-${i}-${j}`,
+                onChange: active => {
+                    console.log(`Checkbox toggled ${i}:${j}`, active);
+                },
+            })
+        );
+    }
 
-gui.addFolder(folder);
+    gui.addFolder(folder);
+}
 
 gui.init();
