@@ -1,3 +1,3 @@
-import { GUI, Folder, Button, CheckBox } from '../lib/gui';
+import { GUI, Folder, Button, CheckBox, RangeSlider } from '../lib/gui';
 
-export default { GUI, Folder, Button, CheckBox };
+export default { GUI, Folder, Button, CheckBox, RangeSlider };

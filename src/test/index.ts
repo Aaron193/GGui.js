@@ -4,14 +4,16 @@ const GUI = GGUI.GUI;
 const Folder = GGUI.Folder;
 const Button = GGUI.Button;
 const CheckBox = GGUI.CheckBox;
+const RangeSlider = GGUI.RangeSlider;
 
 const gui = new GUI({
     title: 'My Gui Title',
 });
 
 const folderCount = 10;
-const buttonPerFolder = 10;
-const checkboxPerFolder = 10;
+const buttonPerFolder = 5;
+const checkboxPerFolder = 5;
+const slidersPerFolder = 5;
 for (let i = 0; i < folderCount; i++) {
     const folder = new Folder({
         name: `folder-${i}`,
@@ -35,6 +37,20 @@ for (let i = 0; i < folderCount; i++) {
                 title: `checkbox-${i}-${j}`,
                 onChange: active => {
                     console.log(`Checkbox toggled ${i}:${j}`, active);
+                },
+            })
+        );
+    }
+
+    for (let j = 0; j < slidersPerFolder; j++) {
+        folder.addComponent(
+            new RangeSlider({
+                title: `slider-${i}-${j}`,
+                min: 0,
+                max: 100,
+                value: 50,
+                onChange: value => {
+                    console.log(`Slider changed ${i}:${j}`, value);
                 },
             })
         );
