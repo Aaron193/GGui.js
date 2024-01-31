@@ -1,5 +1,10 @@
 export const CSS = /*css*/ `
 
+    /* for development  */
+    body {
+        background-color:black;
+    }
+
     #GGUI-Container {
         position: absolute;
         top: 50%;
