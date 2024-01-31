@@ -43,13 +43,14 @@ export const CSS = /*css*/ `
 
     /* Folders */
     .GGUI-Folder {
-        min-width: 200px;
+        min-width: fit-content;
         background-color: #2e2e2e;
         color: white;
         padding: 5px;
         margin-left: 10px;
         margin-right: 10px;
-        overflow: auto;
+        overflow-y: auto;
+
     }
 
     .GGUI-Folder-Title {

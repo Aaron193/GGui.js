@@ -49,6 +49,7 @@ for (let i = 0; i < folderCount; i++) {
                 min: 0,
                 max: 100,
                 value: 50,
+                step: 1,
                 onChange: value => {
                     console.log(`Slider changed ${i}:${j}`, value);
                 },
