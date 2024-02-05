@@ -1,3 +1,4 @@
+import { ColorPicker } from '../lib/components/ColorPicker';
 import GGUI from '../lib/index';
 
 const GUI = GGUI.GUI;
@@ -14,6 +15,7 @@ const folderCount = 10;
 const buttonPerFolder = 5;
 const checkboxPerFolder = 5;
 const slidersPerFolder = 5;
+const colorsPerFolder = 5;
 for (let i = 0; i < folderCount; i++) {
     const folder = new Folder({
         name: `folder-${i}`,
@@ -52,6 +54,16 @@ for (let i = 0; i < folderCount; i++) {
                 step: 1,
                 onChange: value => {
                     console.log(`Slider changed ${i}:${j}`, value);
+                },
+            })
+        );
+    }
+    for (let j = 0; j < colorsPerFolder; j++) {
+        folder.addComponent(
+            new ColorPicker({
+                title: `slider-${i}-${j}`,
+                onChange: value => {
+                    console.log(`color changed ${i}:${j}`, value);
                 },
             })
         );
