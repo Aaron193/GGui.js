@@ -83,4 +83,9 @@ export const CSS = /*css*/ `
     .GGUI-Row:last-child {
         margin-bottom: 0px;
     }
+
+    /* FileUpload */
+    .GGUI-FileUpload {
+        /* color: transparent; */
+    }
 `;

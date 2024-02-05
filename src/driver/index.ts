@@ -1,4 +1,5 @@
 import { ColorWheel } from '../lib/components/ColorWheel';
+import { FileUpload } from '../lib/components/FileUpload';
 import GGUI from '../lib/index';
 
 const GUI = GGUI.GUI;
@@ -16,6 +17,7 @@ const buttonPerFolder = 5;
 const checkboxPerFolder = 5;
 const slidersPerFolder = 5;
 const colorsPerFolder = 5;
+const filesPerFolder = 5;
 for (let i = 0; i < folderCount; i++) {
     const folder = new Folder({
         name: `folder-${i}`,
@@ -64,6 +66,18 @@ for (let i = 0; i < folderCount; i++) {
                 title: `slider-${i}-${j}`,
                 onChange: value => {
                     console.log(`color changed ${i}:${j}`, value);
+                },
+            })
+        );
+    }
+
+    for (let j = 0; j < filesPerFolder; j++) {
+        folder.addComponent(
+            new FileUpload({
+                title: `slider-${i}-${j}`,
+                multiple: true,
+                onUpload: file => {
+                    console.log(`file uploaded ${i}:${j}`, file);
                 },
             })
         );

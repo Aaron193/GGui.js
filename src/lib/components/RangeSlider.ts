@@ -26,10 +26,10 @@ export class RangeSlider extends Component {
         const rangeSlider = document.createElement('input');
         rangeSlider.classList.add('GGUI-RangeSlider');
         rangeSlider.type = 'range';
-        rangeSlider.min = `${this.options.min}`;
-        rangeSlider.max = `${this.options.max}`;
-        rangeSlider.value = `${this.options.value}`;
-        rangeSlider.step = `${this.options.step}`;
+        rangeSlider.min = this.options.min + '';
+        rangeSlider.max = this.options.max + '';
+        rangeSlider.value = this.options.value + '';
+        rangeSlider.step = this.options.step + '';
         rangeSlider.addEventListener('input', e => {
             const value = (e.target as HTMLInputElement).valueAsNumber;
 

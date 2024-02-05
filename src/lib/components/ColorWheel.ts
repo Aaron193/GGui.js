@@ -20,15 +20,15 @@ export class ColorWheel extends Component {
         title.innerText = this.title;
         title.style.marginRight = 'auto';
 
-        const ColorWheel = document.createElement('input');
-        ColorWheel.classList.add('GGUI-ColorWheel');
-        ColorWheel.type = 'color';
-        ColorWheel.addEventListener('change', e => {
+        const colorWheel = document.createElement('input');
+        colorWheel.classList.add('GGUI-ColorWheel');
+        colorWheel.type = 'color';
+        colorWheel.addEventListener('change', e => {
             this.options.onChange((e.target as HTMLInputElement).value);
         });
 
         container.appendChild(title);
-        container.appendChild(ColorWheel);
+        container.appendChild(colorWheel);
 
         parent.appendChild(container);
     }
