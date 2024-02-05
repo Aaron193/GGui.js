@@ -1,12 +1,12 @@
 import { Component, ComponentOptions } from './Component';
 
-type ColorPickerOptions = ComponentOptions & {
+type ColorWheelOptions = ComponentOptions & {
     onChange: (color: string) => void;
 };
 
-export class ColorPicker extends Component {
-    options: ColorPickerOptions;
-    constructor(options: ColorPickerOptions) {
+export class ColorWheel extends Component {
+    options: ColorWheelOptions;
+    constructor(options: ColorWheelOptions) {
         super(options);
         // TODO: find better way for this
         this.options = options;
@@ -20,15 +20,15 @@ export class ColorPicker extends Component {
         title.innerText = this.title;
         title.style.marginRight = 'auto';
 
-        const colorPicker = document.createElement('input');
-        colorPicker.classList.add('GGUI-ColorPicker');
-        colorPicker.type = 'color';
-        colorPicker.addEventListener('change', e => {
+        const ColorWheel = document.createElement('input');
+        ColorWheel.classList.add('GGUI-ColorWheel');
+        ColorWheel.type = 'color';
+        ColorWheel.addEventListener('change', e => {
             this.options.onChange((e.target as HTMLInputElement).value);
         });
 
         container.appendChild(title);
-        container.appendChild(colorPicker);
+        container.appendChild(ColorWheel);
 
         parent.appendChild(container);
     }

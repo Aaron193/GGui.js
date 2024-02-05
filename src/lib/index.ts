@@ -3,6 +3,6 @@ import { Folder } from './Folder';
 import { Button } from './components/Button';
 import { CheckBox } from './components/CheckBox';
 import { RangeSlider } from './components/RangeSlider';
-import { ColorPicker } from './components/ColorPicker';
+import { ColorWheel } from './components/ColorWheel';
 
-export default { GUI, Folder, Button, CheckBox, RangeSlider, ColorPicker };
+export default { GUI, Folder, Button, CheckBox, RangeSlider, ColorWheel };

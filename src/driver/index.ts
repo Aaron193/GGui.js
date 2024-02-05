@@ -1,4 +1,4 @@
-import { ColorPicker } from '../lib/components/ColorPicker';
+import { ColorWheel } from '../lib/components/ColorWheel';
 import GGUI from '../lib/index';
 
 const GUI = GGUI.GUI;
@@ -60,7 +60,7 @@ for (let i = 0; i < folderCount; i++) {
     }
     for (let j = 0; j < colorsPerFolder; j++) {
         folder.addComponent(
-            new ColorPicker({
+            new ColorWheel({
                 title: `slider-${i}-${j}`,
                 onChange: value => {
                     console.log(`color changed ${i}:${j}`, value);
