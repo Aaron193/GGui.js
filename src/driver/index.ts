@@ -13,11 +13,11 @@ const gui = new GUI({
 });
 
 const folderCount = 10;
-const buttonPerFolder = 5;
-const checkboxPerFolder = 5;
-const slidersPerFolder = 5;
-const colorsPerFolder = 5;
-const filesPerFolder = 5;
+const buttonPerFolder = 2;
+const checkboxPerFolder = 2;
+const slidersPerFolder = 2;
+const colorsPerFolder = 2;
+const filesPerFolder = 2;
 for (let i = 0; i < folderCount; i++) {
     const folder = new Folder({
         name: `folder-${i}`,
